@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./component/navbar/Navbar";
 import 'bootstrap/dist/css/bootstrap.css';
-import HomepagePreLogin from "./component/homepage/HomepagePreLogin";
-// import AllPeople from "./components/people/AllPeople";
-// import PersonDetail from "./components/people/PersonDetail";
 import { atom } from "jotai"; 
+import HomepagePreLogin from "./component/homepage/HomepagePreLogin";
 import Login from "./component/login/login";
+import HomepagePostLogin from "./component/homepage/HomepagePostLogin";
+import MyQuestsPage from "./component/quest/MyQuestsPage";
+import QuestDetail from "./component/quest/QuestDetail";
 
 //Variabile di contesto globale
 //è STATE dell'intera applicazione
@@ -20,9 +21,9 @@ function App() {
         <Routes>
           <Route index element={<HomepagePreLogin />} />
           <Route path="login" element={<Login />} />
-          {/* <Route path="allpeople" element={<AllPeople />} />
-          <Route path="persondetail/:id" element={<PersonDetail />}/> */}
-          {/* in spring facciamo con url/{id} */}
+          <Route path="HomepagePostLogin" element={<HomepagePostLogin />} />
+          <Route path="MyQuestsPage" element={<MyQuestsPage />} />
+          <Route path="QuestDetail" element={<QuestDetail />} />
         </Routes>
       </BrowserRouter>
     </>
