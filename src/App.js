@@ -13,7 +13,7 @@ export const valoreGlobale = atom("ciao sono il valore globale");
 
 function App() {
   return (
-    <>
+    <>  
       <BrowserRouter>
 
         <Navbar />    
