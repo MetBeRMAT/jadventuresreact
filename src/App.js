@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./component/navbar/Navbar";
+import 'bootstrap/dist/css/bootstrap.css';
+import HomepagePreLogin from "./component/homepage/HomepagePreLogin";
+// import AllPeople from "./components/people/AllPeople";
+// import PersonDetail from "./components/people/PersonDetail";
+import { atom } from "jotai";
+
+
+//Variabile di contesto globale
+//è STATE dell'intera applicazione
+export const valoreGlobale = atom("ciao sono il valore globale");
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <Navbar />    
+      <Routes>
+        <Route index element={<HomepagePreLogin />} />
+        {/* <Route path="allpeople" element={<AllPeople />} />
+        <Route path="persondetail/:id" element={<PersonDetail />}/> */}
+        {/* in spring facciamo con url/{id} */}
+        
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 
