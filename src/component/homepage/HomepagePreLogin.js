@@ -1,11 +1,63 @@
 import { useAtom } from "jotai";
 import { valoreGlobale } from "../../App";
+import { useEffect, useRef, useState } from "react";
 
 
 export default function Homepage ()
 {
 
     const [v,setV] = useAtom(valoreGlobale);
+    const [quests, setQuests] = useState([]);
+    
+    const searchType = useRef(null);
+    const searchMax = useRef(null);
+    const searchMin = useRef(null);
+    const searchMinRew = useRef(null);
+    const searchArea = useRef(null);
+    const searchStatus = useRef(null);
+
+    
+
+    function filter()
+    {
+        let newQuests = [...quests];
+        
+        let keyType = searchType.current.value; 
+        let keyMin = searchMin.current.value;
+        let keyMax = searchMax.current.value;
+        let keyArea = searchArea.current.value;
+        let keyStatus = searchStatus.current.value;
+        let keyReward = searchMinRew.current.value;
+        
+        let questRank = ["D","C","B","A","S"];
+        let minArray = 0; 
+        let maxArray = questRank.length;
+
+        for(let i = 0; i < questRank.length; i++)
+        {
+            if(questRank[i] == keyMin)
+            minArray = i;
+            if(questRank[i] == keyMax)
+            maxArray = i;
+        }
+
+        let rankFiltered = [...quests];
+        for(let i = minArray; i < maxArray; i++)
+            for(let k = 0; i < newQuests.length; k++)
+                if(newQuests[k].rank.equals(questRank[i]))
+                    rankFiltered.push(newQuests[k]);
+
+        newQuests = rankFiltered.filter(
+                    q =>
+                    q.type.includes(keyType)     &&
+                    q.status.equals(keyStatus)   &&
+                    q.reward >= keyReward        &&
+                    q.area.equals(keyArea)       
+                            );
+        
+        setQuests(newQuests);
+
+    }
 
     // Componente per il modulo di filtro
     function FilterForm() 
@@ -17,25 +69,25 @@ export default function Homepage ()
                         <label for="filter" className="form-label">Filter</label>
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control" id="inputType" placeholder="Type"/>
+                        <input name="type" ref={searchType} type="text" className="form-control" id="inputType" placeholder="Type"/>
                     </div>
                     <div className="col-md-6">
-                        <input type="number" className="form-control" id="inputMinRank" placeholder="Min Rank"/>
+                        <input name="min" ref={searchMin} type="number" className="form-control" id="inputMinRank" placeholder="Min Rank"/>
                     </div>
                     <div className="col-md-6">
-                        <input type="number" className="form-control" id="inputMaxRank" placeholder="Max Rank"/>
+                        <input name="max" ref={searchMax} type="number" className="form-control" id="inputMaxRank" placeholder="Max Rank"/>
                     </div>
                     <div className="col-12">
-                        <input type="number" className="form-control" id="inputMinReward" placeholder="Min Reward"/>
+                        <input name="rew" ref={searchMinRew} type="number" className="form-control" id="inputMinReward" placeholder="Min Reward"/>
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control" id="inputArea" placeholder="Area"/>
+                        <input name="area" ref={searchArea} type="text" className="form-control" id="inputArea" placeholder="Area"/>
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control" id="inputStatus" placeholder="Status"/>
+                        <input name="status" ref={searchStatus} type="text" className="form-control" id="inputStatus" placeholder="Status"/>
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary">Filter</button>
+                        <button onClick={filter} type="submit" className="btn btn-primary">Filter</button>
                     </div>                    
                 </form>
             </div>
