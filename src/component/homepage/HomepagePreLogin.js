@@ -3,7 +3,7 @@ import { valoreGlobale } from "../../App";
 import { useEffect, useRef, useState } from "react";
 
 
-export default function Homepage ()
+export default function HomepagePreLogin ()
 {
 
     const [v,setV] = useAtom(valoreGlobale);
