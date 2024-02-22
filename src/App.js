@@ -13,19 +13,19 @@ export const valoreGlobale = atom("ciao sono il valore globale");
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
+      <BrowserRouter>
 
-      <Navbar />    
-      <Routes>
-        <Route index element={<HomepagePreLogin />} />
-        <Route path="login" element={<Login />} />
-        {/* <Route path="allpeople" element={<AllPeople />} />
-        <Route path="persondetail/:id" element={<PersonDetail />}/> */}
-        {/* in spring facciamo con url/{id} */}
-        
-
-      </Routes>
-    </BrowserRouter>
+        <Navbar />    
+        <Routes>
+          <Route index element={<HomepagePreLogin />} />
+          <Route path="login" element={<Login />} />
+          {/* <Route path="allpeople" element={<AllPeople />} />
+          <Route path="persondetail/:id" element={<PersonDetail />}/> */}
+          {/* in spring facciamo con url/{id} */}
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
