@@ -1,41 +1,54 @@
 import { useAtom } from "jotai";
 import { valoreGlobale } from "../../App";
+import { Link } from "react-router-dom";
 
 
-export default function HomepagePreLogin ()
+export default function MyQuestsPage ()
 {
 
     const [v,setV] = useAtom(valoreGlobale);
 
     // Componente per il modulo di filtro
-    function FilterForm() 
+    function NewQuestForm() 
     {
         return (
-            <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"0%", marginTop:"5%"}}>
+            <div className="card text-center mb-3" style={{width:"17rem", marginLeft:"2%", marginTop:"5%"}}>
                 <form className="row g-3">
                     <div className="col-12"> 
-                        <label for="filter" className="form-label">Filter</label>
+                        <label for="quest" className="form-label">New Quest Form</label>
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control" id="inputType" placeholder="Type"/>
-                    </div>
-                    <div className="col-md-6">
-                        <input type="number" className="form-control" id="inputMinRank" placeholder="Min Rank"/>
-                    </div>
-                    <div className="col-md-6">
-                        <input type="number" className="form-control" id="inputMaxRank" placeholder="Max Rank"/>
-                    </div>
-                    <div className="col-12">
-                        <input type="number" className="form-control" id="inputMinReward" placeholder="Min Reward"/>
-                    </div>
-                    <div className="col-12">
-                        <input type="text" className="form-control" id="inputArea" placeholder="Area"/>
+                        <input type="date" className="form-control" id="inputDateCreated" placeholder="Date created"/>
                     </div>
                     <div className="col-12">
                         <input type="text" className="form-control" id="inputStatus" placeholder="Status"/>
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary">Filter</button>
+                        <input type="text" className="form-control" id="inputRank" placeholder="Rank"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="number" className="form-control" id="inputReward" placeholder="Reward"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="text" className="form-control" id="inputArea" placeholder="Area"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="date" className="form-control" id="inputDateCompleted" placeholder="Date completed"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="text" className="form-control" id="inputMapUrl" placeholder="Map url"/>
+                    </div>
+                    <div className="col-12">
+                        <textarea type="text" className="form-control" id="inputDescription" rows="3" placeholder="Description"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="text" className="form-control" id="inputType" placeholder="Type"/>
+                    </div>
+                    <div className="col-12">
+                        <input type="text" className="form-control" id="inputPatron" placeholder="Patron"/>
+                    </div>
+                    <div className="col-12">
+                        <button type="submit" className="btn btn-primary">Send</button>
                     </div>                    
                 </form>
             </div>
@@ -51,6 +64,10 @@ export default function HomepagePreLogin ()
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{text}</p>
+                <svg class="bi" aria-hidden="true"/>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" type="button"><Link class="nav-link" to="/QuestDetail">Details</Link></button>
+                </div>
             </div>
             </div>
         </div>
@@ -61,7 +78,7 @@ export default function HomepagePreLogin ()
     function CardGrid() 
     {
         return (
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-16%", marginTop:"3%"}}>
+        <div className="row row-cols-1 row-cols-md-2 g-5" style={{marginLeft:"-11%", marginTop:"0%"}}>
             <Card title="Quest 1" text="This is a longer card with supporting text below as a natural lead-in to additional content" />
             <Card title="Quest 2" text="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." />
             <Card title="Quest 3" text="This is a longer card with supporting text below as a natural lead-in to additional content." />
@@ -80,7 +97,7 @@ export default function HomepagePreLogin ()
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <FilterForm/>
+                        <NewQuestForm/>
                     </div>
                     <div className="col-md-8">
                         <CardGrid/>

@@ -2,15 +2,6 @@ import { Link } from "react-router-dom";
 
 const Navbar = () =>
 {
-    let logged = true;
-    let showNavbar = "nav-link";
-    let dontShowNavbar = "nav-link disabled";
-
-    function showMyQuest()
-    {
-        
-    }
-
     return(
         <>
         <nav class="navbar navbar-expand-lg bg-light mb-4 sticky-top">
@@ -24,7 +15,10 @@ const Navbar = () =>
                         <Link class="nav-link" to="/">AllQuests</Link>
                     </li>
                     <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
-                        <Link class = {logged ? dontShowNavbar : showNavbar}>MyQuest</Link>
+                        <Link class="nav-link disabled">MyQuest</Link>
+                    </li>
+                    <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
+                        <Link class="nav-link" to="/MyQuestsPage">MyQuest</Link>
                     </li>
                     <li class="nav-item p-3 me-5 position-absolute top-0 end-0 fw-bold">
                         <Link class="nav-link" to="/login">Login</Link>
