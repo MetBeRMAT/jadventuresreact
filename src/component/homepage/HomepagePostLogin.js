@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { valoreGlobale } from "../../App";
 
 
-export default function Homepage ()
+export default function HomepagePost ()
 {
 
     const [v,setV] = useAtom(valoreGlobale);
