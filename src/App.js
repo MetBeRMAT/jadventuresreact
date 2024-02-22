@@ -5,7 +5,7 @@ import HomepagePreLogin from "./component/homepage/HomepagePreLogin";
 // import AllPeople from "./components/people/AllPeople";
 // import PersonDetail from "./components/people/PersonDetail";
 import { atom } from "jotai";
-import Login from "./component/login/Login";
+import Login from "./component/login/login";
 
 //Variabile di contesto globale
 //è STATE dell'intera applicazione
