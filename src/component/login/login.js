@@ -1,7 +1,7 @@
 const Login = (props) =>
 {
-    const [guildName,setGuildName] = useState("");
-    const [password,setPassword] = useState("");
+    // const [guildName,setGuildName] = useState("");
+    // const [password,setPassword] = useState("");
 
     return(
         <>
