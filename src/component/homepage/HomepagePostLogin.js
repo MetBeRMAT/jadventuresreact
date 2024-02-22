@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { valoreGlobale } from "../../App";
 
 
-export default function HomepagePost ()
+export default function HomepagePostLogin ()
 {
 
     const [v,setV] = useAtom(valoreGlobale);
@@ -11,7 +11,7 @@ export default function HomepagePost ()
     function FilterForm() 
     {
         return (
-            <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"2%", marginTop:"5%"}}>
+            <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"0%", marginTop:"5%"}}>
                 <form className="row g-3">
                     <div className="col-12"> 
                         <label for="filter" className="form-label">Filter</label>
@@ -61,7 +61,7 @@ export default function HomepagePost ()
     function CardGrid() 
     {
         return (
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
+        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-16%", marginTop:"3%"}}>
             <Card title="Quest 1" text="This is a longer card with supporting text below as a natural lead-in to additional content" />
             <Card title="Quest 2" text="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." />
             <Card title="Quest 3" text="This is a longer card with supporting text below as a natural lead-in to additional content." />
