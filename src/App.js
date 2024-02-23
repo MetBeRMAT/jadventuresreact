@@ -7,10 +7,15 @@ import Login from "./component/login/login";
 import HomepagePostLogin from "./component/homepage/HomepagePostLogin";
 import MyQuestsPage from "./component/quest/MyQuestsPage";
 import QuestDetail from "./component/quest/QuestDetail";
+import AllGuildQuests from "./component/quest/AllGuildQuests";
+import { useAtom } from "jotai";
 
 export const currentGuild = atom(); 
 
-function App() {
+function App() 
+{ 
+  const [guild, setGuild] = useAtom(currentGuild);
+
   return (
     <>  
       <BrowserRouter>
@@ -21,7 +26,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="HomepagePostLogin" element={<HomepagePostLogin />} />
           <Route path="MyQuestsPage" element={<MyQuestsPage />} />
-          <Route path="QuestDetail" element={<QuestDetail />} />
+          <Route path="QuestDetail/:id" element={<QuestDetail />} />
+          <Route path="AllGuildQuest" element={<AllGuildQuests/>}/>
         </Routes>
       </BrowserRouter>
     </>

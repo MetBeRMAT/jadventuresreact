@@ -1,22 +1,14 @@
-import { useAtom } from "jotai";
 import { Link } from "react-router-dom";
-import { currentGuild } from "../../App";
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
 
 
 
-export default function MyQuestsPage(props)
+export default function ShowAllGuildQuests(props)
 {
-
-
-    // Componente per il modulo di filtro
     
-
-    // Componente Card per rappresentare una singola carta
-    function Card({ title, text , rank, area, reward, status}) 
+    function Card({ id, title, text , rank, area, reward, status}) 
     {
         return (
+        <>
         <div className="col ">
             <div className="card text-bg-success">
             <div className="card-body">
@@ -27,37 +19,33 @@ export default function MyQuestsPage(props)
                 <p className="card-text">Status: {status}</p>
                 <svg class="bi" aria-hidden="true"/>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary" type="button"><Link class="nav-link" to="/QuestDetail">Details</Link></button>
+                    <button class="btn btn-primary" type="button"><Link class="nav-link" to={"/QuestDetail/"+id}>Details</Link></button>
                 </div>
             </div>
             </div>
         </div>
+        </>
         );
     }
-    
-    // Componente Grid per rappresentare la griglia di carte
+
     function CardGrid() 
     {
         return (
         <div className="row row-cols-1 row-cols-md-11 p-1" style={{marginLeft:"-11%", marginTop:"0%"}}>
-            <Card title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
+            <Card id={props.id} title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
         </div>
         );
     }
 
     return(
         <>
-            <div className="container">
+        <div className="container">
                 <div className="row">
-                    <div className="col-md-4">
-                        {/* <NewQuestForm/> */}
-                    </div>
                     <div className="col-md-8">
                         <CardGrid/>
                     </div>
                 </div>
             </div>
-
         </>
-    );
+    )
 }

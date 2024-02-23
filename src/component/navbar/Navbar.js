@@ -20,11 +20,9 @@ const Navbar = () =>
                     <li class="nav-item ms-5 p-3 fw-bold">
                         <Link class="nav-link" to="/">AllQuests</Link>
                     </li>
+                    
                     <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
-                        <Link class="nav-link disabled">MyQuest</Link>
-                    </li>
-                    <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
-                        <Link class={guild ? showMyQuest : dontShowMyQuest} to="/MyQuestsPage">MyQuest</Link>
+                        <Link class={guild ? showMyQuest : dontShowMyQuest} to="/AllGuildQuest">MyQuest</Link>
                     </li>
                     <li class="nav-item p-3 me-5 position-absolute top-0 end-0 fw-bold">
                         {guild ? <img src={guild.seal_img_url}/>
