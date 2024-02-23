@@ -1,12 +1,11 @@
 import { useAtom } from "jotai";
-import { valoreGlobale } from "../../App";
 import { Link } from "react-router-dom";
 
 
 export default function HomepagePost ()
 {
 
-    const [v,setV] = useAtom(valoreGlobale);
+   
 
     // Componente per il modulo di filtro
     function Quest2() 

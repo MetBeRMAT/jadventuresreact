@@ -1,12 +1,11 @@
 import { useAtom } from "jotai";
-import { valoreGlobale } from "../../App";
 import { Link } from "react-router-dom";
 
 
-export default function MyQuestsPage ()
+export default function MyQuestsPage(props)
 {
 
-    const [v,setV] = useAtom(valoreGlobale);
+  
 
     // Componente per il modulo di filtro
     function NewQuestForm() 
@@ -56,14 +55,17 @@ export default function MyQuestsPage ()
     }
 
     // Componente Card per rappresentare una singola carta
-    function Card({ title, text }) 
+    function Card({ title, text , rank, area, reward, status}) 
     {
         return (
-        <div className="col">
-            <div className="card">
+        <div className="col ">
+            <div className="card text-bg-success">
             <div className="card-body">
-                <h5 className="card-title">{title}</h5>
+                <h5 className="card-title fw-bold ">Quest {title} - {rank}</h5>
                 <p className="card-text">{text}</p>
+                <p className="card-text">Dove? {area}</p>
+                <p className="card-text text-warning">{reward} Gold</p>
+                <p className="card-text">Status: {status}</p>
                 <svg class="bi" aria-hidden="true"/>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="button"><Link class="nav-link" to="/QuestDetail">Details</Link></button>
@@ -78,26 +80,18 @@ export default function MyQuestsPage ()
     function CardGrid() 
     {
         return (
-        <div className="row row-cols-1 row-cols-md-2 g-5" style={{marginLeft:"-11%", marginTop:"0%"}}>
-            <Card title="Quest 1" text="This is a longer card with supporting text below as a natural lead-in to additional content" />
-            <Card title="Quest 2" text="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." />
-            <Card title="Quest 3" text="This is a longer card with supporting text below as a natural lead-in to additional content." />
-            <Card title="Quest 4" text="This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." />
-            <Card title="Quest 5" text="This is a longer card with supporting text below as a natural lead-in to additional content." />
-            <Card title="Quest 6" text="This is a longer card with supporting text below as a natural lead-in to additional content." />
+        <div className="row row-cols-1 row-cols-md-11 p-1" style={{marginLeft:"-11%", marginTop:"0%"}}>
+            <Card title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
         </div>
         );
     }
 
     return(
         <>
-            {/* <h1 className="text-center m-5">SONO HOMEPAGE </h1>
-            <h1 className="text-center m-5">{v} </h1> */}
-
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <NewQuestForm/>
+                        {/* <NewQuestForm/> */}
                     </div>
                     <div className="col-md-8">
                         <CardGrid/>

@@ -1,11 +1,10 @@
 import { useAtom } from "jotai";
-import { valoreGlobale } from "../../App";
 
 
 export default function HomepagePostLogin ()
 {
+    
 
-    const [v,setV] = useAtom(valoreGlobale);
 
     // Componente per il modulo di filtro
     function FilterForm() 

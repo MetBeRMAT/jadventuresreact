@@ -8,9 +8,7 @@ import HomepagePostLogin from "./component/homepage/HomepagePostLogin";
 import MyQuestsPage from "./component/quest/MyQuestsPage";
 import QuestDetail from "./component/quest/QuestDetail";
 
-//Variabile di contesto globale
-//è STATE dell'intera applicazione
-export const valoreGlobale = atom("ciao sono il valore globale");
+export const currentGuild = atom(); 
 
 function App() {
   return (

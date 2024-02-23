@@ -1,7 +1,42 @@
+import { currentGuild } from "../../App";
+import { useAtom } from "jotai";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+
 const Login = (props) =>
 {
-    // const [guildName,setGuildName] = useState("");
-    // const [password,setPassword] = useState("");
+    
+    const [guild, setGuild] = useAtom(currentGuild);
+    const [guilds, setGuilds] = useState([]);
+    
+    useEffect(
+        ()=>
+        {
+            axios.get("/guilds").then(
+                (response)=>
+                {
+                    setGuilds(response.data);
+                }
+            );
+        },
+        []
+    )
+
+    const searchName = useRef(null);
+    const searchPw = useRef(null);
+
+    function log(event)
+    {
+        event.preventDefault();
+        let keyName = searchName.current.value;
+        let keyPw = searchPw.current.value;
+        for(let i = 0; i < guilds.length; i++)
+            if(guilds[i].name == keyName && guilds[i].authentication_seal == keyPw)
+            {
+                setGuild(guilds[i]);
+                return;
+            }
+    }
 
     return(
         <>
@@ -12,13 +47,13 @@ const Login = (props) =>
                     <form>
                     <div class="form-group">
                         <label for="guildName">Guild Name:</label>
-                        <input type="text" class="form-control" id="guildName" name="guildName" required />
+                        <input type="text" ref={searchName} class="form-control" id="guildName" name="guildName" required />
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" required />
+                        <input type="password" ref={searchPw} class="form-control" id="password" name="password" required />
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <button class="btn btn-primary btn-block" onClick={log}>Login</button>
                     </form>
                 </div>
                 </div>
