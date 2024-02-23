@@ -7,7 +7,7 @@ const Navbar = () =>
     const [guild, setGuild] = useAtom(currentGuild);
     let showMyQuest = "nav-link";
     let dontShowMyQuest = "nav-link disabled";
-
+    
     return(
         <>
         <nav class="navbar navbar-expand-lg bg-light mb-4 sticky-top">
