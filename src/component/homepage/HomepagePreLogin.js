@@ -122,21 +122,6 @@ export default function HomepagePreLogin()
         );
     }
 
-    // Componente Card per rappresentare una singola carta
-    function Card({ title, text }) 
-    {
-        return (
-        <div className="col">
-            <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{text}</p>
-            </div>
-            </div>
-        </div>
-        );
-    }
-
     // Componente Grid per rappresentare la griglia di carte
     function CardGrid() 
     {
