@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function ShowAllGuildQuests(props)
 {
+
+               
     // function deleteQuest()
     // {
     //     axios.delete("/quests/"+id);
