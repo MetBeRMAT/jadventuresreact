@@ -60,6 +60,19 @@ export default function AllGuildQuests()
         setNew(clone);
     }
 
+    function deleteQuest(id)
+    {
+        axios.delete("/quests/"+id).then(
+            ()=>
+            {
+                let clone = [...myQuest];
+                let pos = clone.findIndex(q => q.id==id);
+                clone.splice(pos,1);
+                setMyQuests(clone);
+            }
+        )
+    }
+
     return(
         <>
             <div className="container">
@@ -103,7 +116,7 @@ export default function AllGuildQuests()
                     </div>
                     <div className="col-md-8">
                         <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"2%"}}>
-                        {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} />)}
+                        {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
                         </div>
                     </div>
                 </div>
