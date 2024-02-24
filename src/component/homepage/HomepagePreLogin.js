@@ -91,6 +91,7 @@ export default function HomepagePreLogin()
     function FilterForm() 
     {
         return (
+            
             <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"2%", marginTop:"5%"}}>
                 <form className="row g-3">
                     <div className="col-12"> 
@@ -137,17 +138,24 @@ export default function HomepagePreLogin()
 
     return(
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-4">
-                        <FilterForm/>
-                    </div>
-                    <div className="col-md-8">
-                        <CardGrid/>
+            
+                <div className="bg-image" style={{ 
+                    backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/757/75/612/minimalistic-computers-funny-simplistic-simple-entertainment-funny-hd-art-wallpaper-thumb.jpg')", 
+                    backgroundSize: "cover", 
+                    backgroundPosition: "center", 
+                    backgroundRepeat: "no-repeat", 
+                    minHeight: "auto", 
+                    width: "auto", 
+                }}>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <FilterForm/>
+                        </div>
+                        <div className="col-md-8">
+                            <CardGrid/>
+                        </div>
                     </div>
                 </div>
-            </div>
-
         </>
     );
 }
