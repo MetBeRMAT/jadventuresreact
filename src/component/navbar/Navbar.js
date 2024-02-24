@@ -1,12 +1,21 @@
-import { Link } from "react-router-dom";
-import { currentGuild } from "../../App";
+import { Link, redirect } from "react-router-dom";
+import { currentGuild, currentParty } from "../../App";
 import { useAtom } from "jotai";
+import HomepagePostLogin from "../homepage/HomepagePostLogin";
 
 const Navbar = () =>
 {
     const [guild, setGuild] = useAtom(currentGuild);
+    const [party, setParty] = useAtom(currentParty);
     let showMyQuest = "nav-link";
     let dontShowMyQuest = "nav-link disabled";
+    let showMyAvailableQuest = "nav-link";
+    
+    function logout()
+    {
+        window.location.href = "http://localhost:3000/";
+        setGuild(null);
+    }
     
     return(
         <>
@@ -20,12 +29,17 @@ const Navbar = () =>
                     <li class="nav-item ms-5 p-3 fw-bold">
                         <Link class="nav-link" to="/">AllQuests</Link>
                     </li>
-                    
-                    <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
-                        <Link class={guild ? showMyQuest : dontShowMyQuest} to="/AllGuildQuest">MyQuest</Link>
+                    <li class="nav-item ms-5 p-3 fw-bold">
+                        {guild && <Link className={showMyAvailableQuest} to="/MyQuestsAwaitingPage">Available Quests</Link>}
                     </li>
-                    <li class="nav-item p-3 me-5 position-absolute top-0 end-0 fw-bold">
-                        {guild ? <img src={guild.seal_img_url}/>
+                    <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
+                        <Link class={guild ? showMyQuest : dontShowMyQuest} to="/AllGuildQuests">My Quests</Link>
+                    </li>
+                    <li class="nav-item p-4 me-5 position-absolute top-25 end-0 fw-bold">
+                        {guild ? guild.name: <Link class="nav-link" to="/login"></Link>}
+                    </li>
+                    <li class="nav-item p-3 me-3 position-absolute top-25 end-0 fw-bold">
+                        {guild ? <button onClick={logout}> <img src={guild.seal_img_url}/> </button>
                         : <Link class="nav-link" to="/login">Login</Link>}
                     </li>
                 </ul>

@@ -25,7 +25,6 @@ export default function MyQuestsPage(props)
                 <p className="card-text">Dove? {area}</p>
                 <p className="card-text text-warning">{reward} Gold</p>
                 <p className="card-text">Status: {status}</p>
-                <svg class="bi" aria-hidden="true"/>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="button"><Link class="nav-link" to="/QuestDetail">Details</Link></button>
                 </div>
@@ -39,7 +38,7 @@ export default function MyQuestsPage(props)
     function CardGrid() 
     {
         return (
-        <div className="row row-cols-1 row-cols-md-11 p-1" style={{marginLeft:"-11%", marginTop:"0%"}}>
+        <div className="row row-cols-1 row-cols-md-1 p-1" style={{marginLeft:"-15%", marginTop:"5%"}}>
             <Card title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
         </div>
         );
@@ -49,10 +48,7 @@ export default function MyQuestsPage(props)
         <>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-4">
-                        {/* <NewQuestForm/> */}
-                    </div>
-                    <div className="col-md-8">
+                    <div className="col-md-11">
                         <CardGrid/>
                     </div>
                 </div>

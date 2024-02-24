@@ -9,8 +9,11 @@ import MyQuestsPage from "./component/quest/MyQuestsPage";
 import QuestDetail from "./component/quest/QuestDetail";
 import AllGuildQuests from "./component/quest/AllGuildQuests";
 import { useAtom } from "jotai";
+import MyQuestsPageForm from "./component/party/MyQuestsPageForm";
+import MyQuestAwaitingPage from "./component/party/MyQuestsAwaitingPage";
 
 export const currentGuild = atom(); 
+export const currentParty = atom();
 
 function App() 
 { 
@@ -26,8 +29,10 @@ function App()
           <Route path="login" element={<Login />} />
           <Route path="HomepagePostLogin" element={<HomepagePostLogin />} />
           <Route path="MyQuestsPage" element={<MyQuestsPage />} />
+          <Route path="MyQuestPageForm" element={<MyQuestsPageForm />} />
           <Route path="QuestDetail/:id" element={<QuestDetail />} />
-          <Route path="AllGuildQuest" element={<AllGuildQuests/>}/>
+          <Route path="AllGuildQuests" element={<AllGuildQuests/>}/>
+          <Route path="MyQuestAwaitingPage" element={<MyQuestAwaitingPage />} />
         </Routes>
       </BrowserRouter>
     </>

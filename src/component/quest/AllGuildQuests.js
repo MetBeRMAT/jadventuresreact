@@ -65,7 +65,7 @@ export default function AllGuildQuests()
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                    <div className="card text-center mb-3" style={{width:"17rem", marginLeft:"2%", marginTop:"5%"}}>
+                    <div className="card text-center mb-3" style={{width:"17rem", marginLeft:"-15%", marginTop:"5%"}}>
                     <div className="col-12"> 
                         <label for="quest" className="form-label">New Quest Form</label>
                     </div>
@@ -102,7 +102,9 @@ export default function AllGuildQuests()
             </div>
                     </div>
                     <div className="col-md-8">
+                        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"2%"}}>
                         {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} />)}
+                        </div>
                     </div>
                 </div>
             </div>
