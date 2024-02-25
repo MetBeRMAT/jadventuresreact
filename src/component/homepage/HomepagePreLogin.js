@@ -32,18 +32,6 @@ export default function HomepagePreLogin()
     const searchArea = useRef(null);
     const searchStatus = useRef(null);
 
-    function CardGrid() 
-    {
-        return (
-            
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
-            {
-                quests.map(q=><MyQuestsPage key={q.id} {...q} />)
-            }
-        </div>
-        );
-    }
-
     function filter()
     {
         
