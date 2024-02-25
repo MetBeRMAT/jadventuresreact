@@ -80,7 +80,7 @@ export default function HomepagePreLogin()
     {
         return (
             
-            <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"2%", marginTop:"5%"}}>
+            <div className="card text-center mb-3" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"2%", marginTop:"10%"}}>
                 <form className="row g-3">
                     <div className="col-12"> 
                         <label for="filter" className="form-label">Filter</label>
@@ -116,18 +116,24 @@ export default function HomepagePreLogin()
     {
         return (
             
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
+        // <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
+        //     {
+        //         filteredQ.map(q=><MyQuestsPage key={q.id} {...q} />)
+        //     }
+        // </div>
+
+            <div className="row row-cols-1 g-4" style={{marginTop:"0%"}}>
             {
                 filteredQ.map(q=><MyQuestsPage key={q.id} {...q} />)
             }
-        </div>
+            </div>
         );
     }
 
     return(
         <>
             
-                <div className="bg-image" style={{ 
+                {/* <div className="bg-image" style={{ 
                     backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/757/75/612/minimalistic-computers-funny-simplistic-simple-entertainment-funny-hd-art-wallpaper-thumb.jpg')", 
                     backgroundSize: "cover", 
                     backgroundPosition: "center", 
@@ -139,8 +145,24 @@ export default function HomepagePreLogin()
                         <div className="col-md-4">
                             <FilterForm/>
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-6">
                             <CardGrid/>
+                        </div>
+                    </div>
+                </div> */}
+
+
+                <div class="text-bg-dark p-3 text-center">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <FilterForm/>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-12">
+                                    <CardGrid/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
