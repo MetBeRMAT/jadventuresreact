@@ -80,30 +80,31 @@ export default function HomepagePreLogin()
     {
         return (
             
-            <div className="card text-center mb-3" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"2%", marginTop:"10%"}}>
+            <div className="mx-auto border bg-dark text-white text-center" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"18rem", marginLeft:"5%", marginRight:"20%", marginTop:"10%", backgroundColor: "black"}}>
                 <form className="row g-3">
-                    <div className="col-12"> 
+                    <div className="col-md-12"> 
                         <label for="filter" className="form-label">Filter</label>
                     </div>
-                    <div className="col-12">
-                        <input name="type" ref={searchType} type="text" className="form-control" id="inputType" placeholder="Type"/>
+                    <div className="col-9" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%", marginRight:"10%", marginTop:"10%"}}>
+                <form className="row g-3"></form>
+                        <input name="type" ref={searchType} type="text"className="form-control" id="inputType" placeholder="Type"/>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-9" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%", marginRight:"10%", marginTop:"10%"}}>
                         <input name="min" ref={searchMin} type="text" className="form-control" id="inputMinRank" placeholder="Min Rank"/>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-9" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%", marginRight:"10%", marginTop:"10%"}}>
                         <input name="max" ref={searchMax} type="text" className="form-control" id="inputMaxRank" placeholder="Max Rank"/>
                     </div>
-                    <div className="col-12">
+                    <div className="col-9" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%",marginRight:"10%", marginTop:"10%"}}>
                         <input name="rew" ref={searchMinRew} type="number" className="form-control" id="inputMinReward" placeholder="Min Reward"/>
                     </div>
-                    <div className="col-12">
-                        <input name="area" ref={searchArea} type="text" className="form-control" id="inputArea" placeholder="Area"/>
+                    <div className="mb-1" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%", marginRight:"10%", marginTop:"10%"}}>
+                        <input name="area" ref={searchArea} type="text" className="form-label" id="inputArea" placeholder="Area"/>
                     </div>
-                    <div className="col-12">
-                        <input name="status" ref={searchStatus} type="text" className="form-control" id="inputStatus" placeholder="Status"/>
+                    <div className="mb-1" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"10%", marginRight:"10%", marginTop:"10%"}}>
+                        <input name="status" ref={searchStatus} type="text" className="form-label" id="inputStatus" placeholder="Status"/>
                     </div>
-                    <div className="col-12">
+                    <div className="mb-3">
                         <button onClick={filter} type="submit" className="btn btn-primary">Filter</button>
                     </div>                    
                 </form>

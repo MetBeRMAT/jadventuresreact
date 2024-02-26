@@ -57,8 +57,12 @@ const Navbar = () => {
 
     function logout() {
         setGuild(null);
+<<<<<<< HEAD
+        setParty(null);
+=======
         window.location.href = "http://localhost:3000/";
         // Effettua il logout e rimuovi eventuali informazioni di autenticazione salvate
+>>>>>>> 821a341469c56e96b122e919c49784e798e85195
     }
 
     return (
@@ -111,7 +115,11 @@ const AuthenticatedNavbar = ({ guild, logout }) => {
                         <Link class="text-white nav-link" to="/">AllQuests</Link>
                     </li>
                     <li class="nav-item ms-5 p-3 fw-bold">
+<<<<<<< HEAD
+                        {party && <Link className={showMyAvailableQuest} to="/MyQuestsAwaitingPage">Available Quests</Link>}
+=======
                         <Link className="text-white nav-link" to="/MyQuestsAwaitingPage">Available Quests</Link>
+>>>>>>> 821a341469c56e96b122e919c49784e798e85195
                     </li>
                     <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
                         <Link class="text-white nav-link" to="/AllGuildQuests">My Quests</Link>
@@ -120,7 +128,17 @@ const AuthenticatedNavbar = ({ guild, logout }) => {
                         {guild.name}
                     </li>
                     <li class="nav-item p-3 me-3 position-absolute top-25 end-0 fw-bold">
+<<<<<<< HEAD
+                        {
+                            guild ? 
+                            <button onClick={logout}> <img src={guild.seal_img_url}/> </button> :
+                            party ?
+                            <button onClick={logout}> <p> {party.name} </p></button> :           
+                            <Link class="text-white nav-link" to="/login">Login</Link>
+                        }
+=======
                         <button onClick={logout}> <img src={guild.seal_img_url}/> </button>
+>>>>>>> 821a341469c56e96b122e919c49784e798e85195
                     </li>
                 </ul>
                 </div>

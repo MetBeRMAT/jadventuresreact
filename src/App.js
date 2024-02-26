@@ -18,6 +18,7 @@ export const currentParty = atom();
 function App() 
 { 
   const [guild, setGuild] = useAtom(currentGuild);
+  const [party, setParty] = useAtom(currentParty);
 
   return (
     <>  
