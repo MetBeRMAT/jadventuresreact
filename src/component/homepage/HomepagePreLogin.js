@@ -122,7 +122,7 @@ export default function HomepagePreLogin()
         //     }
         // </div>
 
-            <div className="row row-cols-1 g-4" style={{marginTop:"0%"}}>
+            <div className="row row-cols-2 g-4" style={{marginTop:"0%"}}>
             {
                 filteredQ.map(q=><MyQuestsPage key={q.id} {...q} />)
             }
