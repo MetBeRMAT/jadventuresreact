@@ -9,6 +9,7 @@ export default function AllGuildQuests()
 {
     const [guild, setGuild] = useAtom(currentGuild);
     const [myQuest, setMyQuests] = useState([]);
+    const [questToShow,setQuestToShow] = useState([]);
 
     const [newQuest, setNew] = useState({
         date_created:"",
@@ -26,7 +27,7 @@ export default function AllGuildQuests()
     useEffect(
         ()=>
         {
-            axios.get("/guilds/"+guild.id+"/quests").then(
+            axios.get(`/guilds/${guild.id}/quests`).then(
                 (response)=>
                 {
                     setMyQuests(response.data);
@@ -36,10 +37,21 @@ export default function AllGuildQuests()
         []
     )
 
+    function notifyFather(quest)
+    {
+        let clone = [...myQuest]
+        clone.push(quest);
+        setMyQuests(clone);
+        setQuestToShow(clone);
+    }
+
     function UploadQuest()
     {
-                axios.post("/guilds/"+guild.id+"/quests", newQuest).then((response)=>{
-                    setNew({
+                axios.post(`/guilds/${guild.id}/quests`, newQuest).then(
+                    (response)=>
+                    {
+                        notifyFather(response.data)
+                        setNew({
                         date_created:"",
                         status:"",
                         rank:"",
