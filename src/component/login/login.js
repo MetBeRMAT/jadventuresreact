@@ -2,15 +2,14 @@ import { currentGuild, currentParty } from "../../App";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Login = (props) =>
 {
     
     const [guild, setGuild] = useAtom(currentGuild);
     const [guilds, setGuilds] = useState([]);
-
-    const [party, setParty] = useAtom(currentParty);
-    const [festival, setFestival] = useAtom([]);
     
     useEffect(
         ()=>
@@ -53,12 +52,6 @@ const Login = (props) =>
                 setGuild(guilds[i]);
                 return;
             }
-            if(festival[i].authentication_seal == keyPw && festival[i].name == keyName)
-            {
-                setParty(festival[i]);
-                return;
-            }
-        }
     }
 
     return(
@@ -76,7 +69,15 @@ const Login = (props) =>
                         <label for="password">Password:</label>
                         <input type="password" ref={searchPw} class="form-control" id="password" name="password" required />
                     </div>
-                    <button class="btn btn-primary btn-block" onClick={log}>Login</button>
+                    <br></br>
+                    {/* BUTTON LOGIN */}
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        {/* <Link to="/HomepagePostLogin" className="btn btn-primary" role="button" onClick={log}>Login</Link> */}
+                        {/* <button class="btn btn-primary btn-block" onClick={log}>Login</button> */}
+                        {/* <button class="btn btn-primary btn-block" to="/HomepagePostLogin"><Link class="nav-link" onClick={log}>Login</Link></button> */}
+                        <Link className="btn btn-primary btn-block " role="button" onClick={log}>Login</Link>
+                    </div>
+
                     </form>
                 </div>
                 </div>
