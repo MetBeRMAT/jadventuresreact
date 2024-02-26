@@ -9,7 +9,7 @@ const Login = (props) =>
     const [guild, setGuild] = useAtom(currentGuild);
     const [guilds, setGuilds] = useState([]);
     
-    useEffect(
+    useEffect(  
         ()=>
         {
             axios.get("/guilds").then(
