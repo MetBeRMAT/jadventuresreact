@@ -20,7 +20,7 @@ export default function AllGuildQuests()
         type:"",
         guild_id:guild.id,
         description:"",
-        mape_url:"",
+        map_url:"",
         date_completed:""
     });
 
@@ -60,7 +60,7 @@ export default function AllGuildQuests()
                         type:"",
                         guild_id:guild.id,
                         description:"",
-                        mape_url:"",
+                        map_url:"",
                         date_completed:""
                     });})
     }
@@ -113,7 +113,7 @@ export default function AllGuildQuests()
                         <input name="date_completed" type="date" className="form-control" onChange={synchronize} placeholder="Date completed"/>
                     </div>
                     <div className="col-12">
-                        <input name="mape_url" type="text" className="form-control" onChange={synchronize} placeholder="Map url"/>
+                        <input name="map_url" type="text" className="form-control" onChange={synchronize} placeholder="Map url"/>
                     </div>
                     <div className="col-12">
                         <textarea name="description" type="text" className="form-control" onChange={synchronize} rows="3" placeholder="Description"/>
@@ -128,7 +128,7 @@ export default function AllGuildQuests()
                     </div>
                     <div className="col-md-8">
                         <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"2%"}}>
-                        {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
+                            {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
                         </div>
                     </div>
                 </div>
