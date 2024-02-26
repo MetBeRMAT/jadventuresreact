@@ -17,11 +17,11 @@ export default function MyQuestsPage(props)
     
 
     // Componente Card per rappresentare una singola carta
-    function Card({ mape_url,title, text , rank, area, reward, status}) 
+    function Card({ map_url,title, text , rank, area, reward, status}) 
     {
         return (
                 <div class="card text-bg-dark">
-                    <img src={mape_url} class="card-img" style={{opacity:"0.1"}}/>
+                    <img src={map_url} class="card-img" style={{opacity:"0.1"}}/>
                     <div class="card-img-overlay">
                         <h3 style={{fontFamily:"Lucida Handwriting,cursive"}} class="card-title">Quest n°{title}</h3>
                         <dl class="row">
@@ -91,7 +91,7 @@ export default function MyQuestsPage(props)
         //     <Card mape_url={props.mape_url} title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
         // </div>
             <div>
-                <Card mape_url={props.mape_url} title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
+                <Card map_url={props.map_url} title={props.id} text={props.description} rank={props.rank} status={props.status} area={props.area} reward={props.reward}/>
             </div>
         );
     }
