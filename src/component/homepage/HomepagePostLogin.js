@@ -140,7 +140,7 @@ export default function HomepagePostLogin()
     // Componente Grid per rappresentare la griglia di carte
     function CardGrid() 
     {
-        return (
+        return (    
             
         <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
             {
