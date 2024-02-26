@@ -27,7 +27,7 @@ export default function AllGuildQuests()
     useEffect(
         ()=>
         {
-            axios.get(`/guilds/${guild.id}/quests`).then(
+            axios.get("/guilds/"+guild.id+"/quest").then(
                 (response)=>
                 {
                     setMyQuests(response.data);
@@ -128,7 +128,7 @@ export default function AllGuildQuests()
                     </div>
                     <div className="col-md-8">
                         <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"2%"}}>
-                            {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
+                        {guild.posted_quests.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
                         </div>
                     </div>
                 </div>
