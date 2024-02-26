@@ -62,7 +62,7 @@ export default function MyQuestsPage(props)
                             <dd style={{fontFamily:"Copperplate,Fantasy"}} class={`d-flex col-sm-9 justify-content-end ${status=="SUCCESS" ? success : status === "AWAITING" ? awaiting : status === "PENDING" ? pending : failed}`}>{status}</dd>
                             
                         </dl>
-                        <button class="btn btn-info position-absolute bottom-0 end-0" type="button"><Link class="nav-link" to="/QuestDetail">Details</Link></button>
+                        <button class="btn btn-info position-absolute bottom-0 end-0" type="button"><Link class="nav-link" to={"/QuestDetail/"+title}>Details</Link></button>
                         <h2 style={{color:"#fd7e14",fontFamily:"Audiowide,sans-serif"}}className="position-absolute top-0 start-2%">{rank}</h2>
                     </div>
                 </div>
