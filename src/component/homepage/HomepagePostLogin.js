@@ -32,18 +32,6 @@ export default function HomepagePostLogin()
     const searchArea = useRef(null);
     const searchStatus = useRef(null);
 
-    function CardGrid() 
-    {
-        return (
-            
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
-            {
-                quests.map(q=><MyQuestsPage key={q.id} {...q} />)
-            }
-        </div>
-        );
-    }
-
     function filter()
     {
         
@@ -91,7 +79,8 @@ export default function HomepagePostLogin()
     function FilterForm() 
     {
         return (
-            <div className="card text-center mb-3" style={{width:"14rem", marginLeft:"2%", marginTop:"5%"}}>
+            
+            <div className="card text-center mb-3" style={{position:"-webkit-sticky", position: "sticky", top:"100px",width:"14rem", marginLeft:"2%", marginTop:"10%"}}>
                 <form className="row g-3">
                     <div className="col-12"> 
                         <label for="filter" className="form-label">Filter</label>
@@ -122,47 +111,61 @@ export default function HomepagePostLogin()
         );
     }
 
-    // Componente Card per rappresentare una singola carta
-    function Card({ title, text }) 
-    {
-        return (
-        <div className="col">
-            <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{text}</p>
-            </div>
-            </div>
-        </div>
-        );
-    }
-    
     // Componente Grid per rappresentare la griglia di carte
     function CardGrid() 
     {
-        return (    
+        return (
             
-        <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
+        // <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"0%"}}>
+        //     {
+        //         filteredQ.map(q=><MyQuestsPage key={q.id} {...q} />)
+        //     }
+        // </div>
+
+            <div className="row row-cols-2 g-4" style={{marginTop:"0%"}}>
             {
                 filteredQ.map(q=><MyQuestsPage key={q.id} {...q} />)
             }
-        </div>
+            </div>
         );
     }
 
     return(
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-4">
-                        <FilterForm/>
+            
+                {/* <div className="bg-image" style={{ 
+                    backgroundImage: "url('https://c4.wallpaperflare.com/wallpaper/757/75/612/minimalistic-computers-funny-simplistic-simple-entertainment-funny-hd-art-wallpaper-thumb.jpg')", 
+                    backgroundSize: "cover", 
+                    backgroundPosition: "center", 
+                    backgroundRepeat: "no-repeat", 
+                    minHeight: "auto", 
+                    width: "auto", 
+                }}>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <FilterForm/>
+                        </div>
+                        <div className="col-6">
+                            <CardGrid/>
+                        </div>
                     </div>
-                    <div className="col-md-8">
-                        <CardGrid/>
+                </div> */}
+
+
+                <div class="text-bg-dark p-3 text-center">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <FilterForm/>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-12">
+                                    <CardGrid/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
         </>
     );
 }

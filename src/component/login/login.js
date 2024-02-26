@@ -2,6 +2,8 @@ import { currentGuild } from "../../App";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const Login = (props) =>
 {
@@ -53,7 +55,9 @@ const Login = (props) =>
                         <label for="password">Password:</label>
                         <input type="password" ref={searchPw} class="form-control" id="password" name="password" required />
                     </div>
-                    <button class="btn btn-primary btn-block" onClick={log}>Login</button>
+                    {/* <button class="btn btn-primary btn-block" onClick={log}>Login</button> */}
+                    {/* <button class="btn btn-primary btn-block" onClick={log}><Link class="nav-link" to="/HomepagePostLogin">Login</Link></button> */}
+                    <a href="/HomepagePostLogin" class="btn btn-primary" role="button" data-bs-toggle="button" onClick={log}>Toggle link</a>
                     </form>
                 </div>
                 </div>
