@@ -5,12 +5,14 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const Login = (props) =>
+export default function Login(props)
 {
     
     const [guild, setGuild] = useAtom(currentGuild);
     const [guilds, setGuilds] = useState([]);
-    
+    const [party, setParty] = useState(currentParty);
+    const [parties, setParties] = useState([]);
+
     useEffect(
         ()=>
         {
@@ -30,7 +32,7 @@ const Login = (props) =>
             axios.get("/parties").then(
                 (response)=>
                 {
-                    setFestival(response.data);
+                    setParties(response.data);
                 }
             );
         },
@@ -50,6 +52,11 @@ const Login = (props) =>
             if(guilds[i].name == keyName && guilds[i].authentication_seal == keyPw)
             {
                 setGuild(guilds[i]);
+                return;
+            }
+            if(parties[i].name == keyName && parties[i].authentication_seal == keyPw)
+            {
+                setParty(guilds[i]);
                 return;
             }
     }
@@ -84,6 +91,5 @@ const Login = (props) =>
             </div>
         </>
     )
+    }
 }
-
-export default Login;
