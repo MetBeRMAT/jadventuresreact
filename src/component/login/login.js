@@ -1,4 +1,4 @@
-import { currentGuild } from "../../App";
+import { currentGuild, currentParty } from "../../App";
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -8,6 +8,9 @@ const Login = (props) =>
     
     const [guild, setGuild] = useAtom(currentGuild);
     const [guilds, setGuilds] = useState([]);
+
+    const [party, setParty] = useAtom(currentParty);
+    const [festival, setFestival] = useAtom([]);
     
     useEffect(
         ()=>
@@ -16,6 +19,19 @@ const Login = (props) =>
                 (response)=>
                 {
                     setGuilds(response.data);
+                }
+            );
+        },
+        []
+    )
+
+    useEffect(
+        ()=>
+        {
+            axios.get("/parties").then(
+                (response)=>
+                {
+                    setFestival(response.data);
                 }
             );
         },
@@ -31,11 +47,18 @@ const Login = (props) =>
         let keyName = searchName.current.value;
         let keyPw = searchPw.current.value;
         for(let i = 0; i < guilds.length; i++)
+        {
             if(guilds[i].name == keyName && guilds[i].authentication_seal == keyPw)
             {
                 setGuild(guilds[i]);
                 return;
             }
+            if(festival[i].authentication_seal == keyPw && festival[i].name == keyName)
+            {
+                setParty(festival[i]);
+                return;
+            }
+        }
     }
 
     return(

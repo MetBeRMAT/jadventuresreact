@@ -15,6 +15,7 @@ const Navbar = () =>
     {
         window.location.href = "http://localhost:3000/";
         setGuild(null);
+        setParty(null);
     }
     
     return(
@@ -30,7 +31,7 @@ const Navbar = () =>
                         <Link class="text-white nav-link" to="/">AllQuests</Link>
                     </li>
                     <li class="nav-item ms-5 p-3 fw-bold">
-                        {guild && <Link className={showMyAvailableQuest} to="/MyQuestsAwaitingPage">Available Quests</Link>}
+                        {party && <Link className={showMyAvailableQuest} to="/MyQuestsAwaitingPage">Available Quests</Link>}
                     </li>
                     <li class="nav-item p-3 fw-bold position-absolute top-50 start-50 translate-middle">
                         <Link class={guild ? showMyQuest : dontShowMyQuest} to="/AllGuildQuests">My Quests</Link>
@@ -39,8 +40,13 @@ const Navbar = () =>
                         {guild ? guild.name : <Link class="text-white nav-link" to="/login"></Link>}
                     </li>
                     <li class="nav-item p-3 me-3 position-absolute top-25 end-0 fw-bold">
-                        {guild ? <button onClick={logout}> <img src={guild.seal_img_url}/> </button>
-                        : <Link class="text-white nav-link" to="/login">Login</Link>}
+                        {
+                            guild ? 
+                            <button onClick={logout}> <img src={guild.seal_img_url}/> </button> :
+                            party ?
+                            <button onClick={logout}> <p> {party.name} </p></button> :           
+                            <Link class="text-white nav-link" to="/login">Login</Link>
+                        }
                     </li>
                 </ul>
                 </div>
