@@ -26,7 +26,7 @@ export default function AllGuildQuests()
     useEffect(
         ()=>
         {
-            axios.get("/guilds/"+guild.id+"/quest").then(
+            axios.get("/guilds/"+guild.id+"/quests").then(
                 (response)=>
                 {
                     setMyQuests(response.data);
