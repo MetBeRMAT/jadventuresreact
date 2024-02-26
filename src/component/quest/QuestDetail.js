@@ -148,8 +148,6 @@ export default function QuestDetail(props)
 
     return(
         <>
-            {/* <h1 className="text-center m-5">SONO HOMEPAGE </h1>
-            <h1 className="text-center m-5">{v} </h1> */}
             <NoQuestUser/>
             <QuestModificable/>
         </>

@@ -1,5 +1,4 @@
 import { useAtom } from "jotai";
-import { Link } from "react-router-dom";
 import { currentGuild } from "../../App";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -128,6 +127,9 @@ export default function AllGuildQuests()
                     </div>
                     <div className="col-md-8">
                         <div className="row row-cols-1 row-cols-md-3 g-4" style={{marginLeft:"-12%", marginTop:"2%"}}>
+
+                        {/* {myQuest.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)} */}
+                        {Array.isArray(myQuest) && myQuest.map(q => <ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
                         {guild.posted_quests.map(q=><ShowAllGuildQuests key={q.id} {...q} deleteMe={deleteQuest}/>)}
                         </div>
                     </div>
